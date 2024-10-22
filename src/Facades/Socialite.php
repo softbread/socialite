@@ -1,19 +1,19 @@
 <?php
 
-namespace Laravel\Socialite\Facades;
+namespace Softbread\Socialite\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Laravel\Socialite\Contracts\Factory;
+use Softbread\Socialite\Contracts\Factory;
 
 /**
- * @method static \Laravel\Socialite\Contracts\Provider driver(string $driver = null)
- * @method static \Laravel\Socialite\Two\AbstractProvider buildProvider($provider, $config)
+ * @method static \Softbread\Socialite\Contracts\Provider driver(string $driver = null)
+ * @method static \Softbread\Socialite\Two\AbstractProvider buildProvider($provider, $config)
  * @method array getScopes()
- * @method \Laravel\Socialite\Contracts\Provider scopes(array|string $scopes)
- * @method \Laravel\Socialite\Contracts\Provider setScopes(array|string $scopes)
- * @method \Laravel\Socialite\Contracts\Provider redirectUrl(string $url)
+ * @method \Softbread\Socialite\Contracts\Provider scopes(array|string $scopes)
+ * @method \Softbread\Socialite\Contracts\Provider setScopes(array|string $scopes)
+ * @method \Softbread\Socialite\Contracts\Provider redirectUrl(string $url)
  *
- * @see \Laravel\Socialite\SocialiteManager
+ * @see \Softbread\Socialite\SocialiteManager
  */
 class Socialite extends Facade
 {

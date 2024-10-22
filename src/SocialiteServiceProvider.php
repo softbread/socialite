@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Socialite;
+namespace Softbread\Socialite;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use Laravel\Socialite\Contracts\Factory;
+use Softbread\Socialite\Contracts\Factory;
 
 class SocialiteServiceProvider extends ServiceProvider implements DeferrableProvider
 {
