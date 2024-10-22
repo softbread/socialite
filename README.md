@@ -6,6 +6,7 @@
 
 ThinkPHP Socialite provides an expressive, fluent interface to OAuth authentication with Facebook, Twitter, Google, LinkedIn, GitHub, GitLab and Bitbucket. It handles almost all of the boilerplate social authentication code you are dreading writing.
 
+This project is forked from laravel/socialite <a href="https://github.com/laravel/socialite">laravel/socialite</a> and tweaked without its own tests. Please use at your own risk.
 
 ## Contributing
 
