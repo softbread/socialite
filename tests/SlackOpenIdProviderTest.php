@@ -3,9 +3,9 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Contracts\User as UserContract;
-use Laravel\Socialite\Two\SlackOpenIdProvider;
-use Laravel\Socialite\Two\User;
+use Softbread\Socialite\Contracts\User as UserContract;
+use Softbread\Socialite\Two\SlackOpenIdProvider;
+use Softbread\Socialite\Two\User;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;

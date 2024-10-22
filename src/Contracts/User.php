@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Contracts;
+namespace Softbread\Socialite\Contracts;
 
 interface User
 {

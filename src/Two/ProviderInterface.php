@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Two;
+namespace Softbread\Socialite\Two;
 
 interface ProviderInterface
 {
@@ -14,7 +14,7 @@ interface ProviderInterface
     /**
      * Get the User instance for the authenticated user.
      *
-     * @return \Laravel\Socialite\Two\User
+     * @return \Softbread\Socialite\Two\User
      */
     public function user();
 }

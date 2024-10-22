@@ -1,14 +1,14 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace Softbread\Socialite\Tests;
 
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Laravel\Socialite\One\MissingTemporaryCredentialsException;
-use Laravel\Socialite\One\MissingVerifierException;
-use Laravel\Socialite\One\User as SocialiteUser;
-use Laravel\Socialite\Tests\Fixtures\OAuthOneTestProviderStub;
+use Softbread\Socialite\One\MissingTemporaryCredentialsException;
+use Softbread\Socialite\One\MissingVerifierException;
+use Softbread\Socialite\One\User as SocialiteUser;
+use Softbread\Socialite\Tests\Fixtures\OAuthOneTestProviderStub;
 use League\OAuth1\Client\Credentials\TemporaryCredentials;
 use League\OAuth1\Client\Credentials\TokenCredentials;
 use League\OAuth1\Client\Server\Twitter;
@@ -33,7 +33,7 @@ class OAuthOneTest extends TestCase
         $server->expects('getTemporaryCredentials')->andReturns($temp);
         $server->expects('getAuthorizationUrl')->with($temp)->andReturns('http://auth.url');
         $request = Request::create('foo');
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('put')->with('oauth.temp', $temp);
 
         $provider = new OAuthOneTestProviderStub($request, $server);
@@ -57,7 +57,7 @@ class OAuthOneTest extends TestCase
         $user->email = 'foo@bar.com';
         $user->extra = ['extra' => 'extra'];
         $request = Request::create('foo', 'GET', ['oauth_token' => 'oauth_token', 'oauth_verifier' => 'oauth_verifier']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('get')->with('oauth.temp')->andReturns($temp);
 
         $provider = new OAuthOneTestProviderStub($request, $server);
@@ -75,7 +75,7 @@ class OAuthOneTest extends TestCase
 
         $server = m::mock(Twitter::class);
         $request = Request::create('foo');
-        $request->setLaravelSession(m::mock(Session::class));
+        $request->setSoftbreadSession(m::mock(Session::class));
 
         $provider = new OAuthOneTestProviderStub($request, $server);
         $provider->user();
@@ -87,7 +87,7 @@ class OAuthOneTest extends TestCase
 
         $server = m::mock(Twitter::class);
         $request = Request::create('foo', 'GET', ['oauth_token' => 'oauth_token', 'oauth_verifier' => 'oauth_verifier']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('get')->with('oauth.temp')->andReturns(null);
 
         $provider = new OAuthOneTestProviderStub($request, $server);

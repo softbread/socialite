@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Socialite;
+namespace Softbread\Socialite;
 
 use ArrayAccess;
-use Laravel\Socialite\Contracts\User;
+use Softbread\Socialite\Contracts\User;
 
 abstract class AbstractUser implements ArrayAccess, User
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Laravel\Socialite\One;
+namespace Softbread\Socialite\One;
 
-use Laravel\Socialite\AbstractUser;
+use Softbread\Socialite\AbstractUser;
 
 class User extends AbstractUser
 {

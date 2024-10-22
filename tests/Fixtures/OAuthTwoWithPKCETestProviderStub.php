@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Tests\Fixtures;
+namespace Softbread\Socialite\Tests\Fixtures;
 
 class OAuthTwoWithPKCETestProviderStub extends OAuthTwoTestProviderStub
 {

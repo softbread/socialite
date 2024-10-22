@@ -1,13 +1,13 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace Softbread\Socialite\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Http\Request;
-use Laravel\Socialite\Contracts\User as UserContract;
-use Laravel\Socialite\Two\LinkedInOpenIdProvider;
-use Laravel\Socialite\Two\User;
+use Softbread\Socialite\Contracts\User as UserContract;
+use Softbread\Socialite\Two\LinkedInOpenIdProvider;
+use Softbread\Socialite\Two\User;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
@@ -30,14 +30,14 @@ class LinkedInOpenIdProviderTest extends TestCase
             'picture' => 'https://media.licdn.com/dms/image/D4D03AQmZFgJNqeNNk',
             'name' => 'Nuno Maduro',
             'family_name' => 'Maduro',
-            'email' => 'nuno@laravel.com',
+            'email' => 'nuno@Softbread.com',
         ]);
 
         $this->assertInstanceOf(User::class, $user);
         $this->assertSame('asdfgh', $user->getId());
         $this->assertNull($user->getNickname());
         $this->assertSame('Nuno Maduro', $user->getName());
-        $this->assertSame('nuno@laravel.com', $user->getEmail());
+        $this->assertSame('nuno@Softbread.com', $user->getEmail());
         $this->assertSame('https://media.licdn.com/dms/image/D4D03AQmZFgJNqeNNk', $user->getAvatar());
 
         $this->assertSame([
@@ -46,7 +46,7 @@ class LinkedInOpenIdProviderTest extends TestCase
             'name' => 'Nuno Maduro',
             'first_name' => 'Nuno',
             'last_name' => 'Maduro',
-            'email' => 'nuno@laravel.com',
+            'email' => 'nuno@Softbread.com',
             'avatar' => 'https://media.licdn.com/dms/image/D4D03AQmZFgJNqeNNk',
             'avatar_original' => 'https://media.licdn.com/dms/image/D4D03AQmZFgJNqeNNk',
         ], $user->attributes);

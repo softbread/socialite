@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Two;
+namespace Softbread\Socialite\Two;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\RequestOptions;
@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use Laravel\Socialite\Contracts\Provider as ProviderContract;
+use Softbread\Socialite\Contracts\Provider as ProviderContract;
 
 abstract class AbstractProvider implements ProviderContract
 {
@@ -99,7 +99,7 @@ abstract class AbstractProvider implements ProviderContract
     /**
      * The cached user instance.
      *
-     * @var \Laravel\Socialite\Two\User|null
+     * @var \Softbread\Socialite\Two\User|null
      */
     protected $user;
 
@@ -149,7 +149,7 @@ abstract class AbstractProvider implements ProviderContract
      * Map the raw user array to a Socialite User instance.
      *
      * @param  array  $user
-     * @return \Laravel\Socialite\Two\User
+     * @return \Softbread\Socialite\Two\User
      */
     abstract protected function mapUserToObject(array $user);
 
@@ -249,7 +249,7 @@ abstract class AbstractProvider implements ProviderContract
      *
      * @param  array  $response
      * @param  array  $user
-     * @return \Laravel\Socialite\Two\User
+     * @return \Softbread\Socialite\Two\User
      */
     protected function userInstance(array $response, array $user)
     {
@@ -265,7 +265,7 @@ abstract class AbstractProvider implements ProviderContract
      * Get a Social User instance from a known access token.
      *
      * @param  string  $token
-     * @return \Laravel\Socialite\Two\User
+     * @return \Softbread\Socialite\Two\User
      */
     public function userFromToken($token)
     {
@@ -344,7 +344,7 @@ abstract class AbstractProvider implements ProviderContract
      * Refresh a user's access token with a refresh token.
      *
      * @param  string  $refreshToken
-     * @return \Laravel\Socialite\Two\Token
+     * @return \Softbread\Socialite\Two\Token
      */
     public function refreshToken($refreshToken)
     {

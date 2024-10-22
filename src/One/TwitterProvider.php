@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\One;
+namespace Softbread\Socialite\One;
 
 class TwitterProvider extends AbstractProvider
 {

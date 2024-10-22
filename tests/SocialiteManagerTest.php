@@ -1,10 +1,10 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace Softbread\Socialite\Tests;
 
-use Laravel\Socialite\Contracts\Factory;
-use Laravel\Socialite\SocialiteServiceProvider;
-use Laravel\Socialite\Two\GithubProvider;
+use Softbread\Socialite\Contracts\Factory;
+use Softbread\Socialite\SocialiteServiceProvider;
+use Softbread\Socialite\Two\GithubProvider;
 use Orchestra\Testbench\TestCase;
 
 class SocialiteManagerTest extends TestCase

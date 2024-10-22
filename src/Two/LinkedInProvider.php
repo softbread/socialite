@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Socialite\Two;
+namespace Softbread\Socialite\Two;
 
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Arr;

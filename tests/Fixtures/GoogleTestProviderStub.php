@@ -1,9 +1,9 @@
 <?php
 
-namespace Laravel\Socialite\Tests\Fixtures;
+namespace Softbread\Socialite\Tests\Fixtures;
 
-use Laravel\Socialite\Two\GoogleProvider;
-use Laravel\Socialite\Two\User;
+use Softbread\Socialite\Two\GoogleProvider;
+use Softbread\Socialite\Two\User;
 use Mockery as m;
 use stdClass;
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace Laravel\Socialite\Tests;
+namespace Softbread\Socialite\Tests;
 
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-use Laravel\Socialite\Tests\Fixtures\FacebookTestProviderStub;
-use Laravel\Socialite\Tests\Fixtures\GoogleTestProviderStub;
-use Laravel\Socialite\Tests\Fixtures\OAuthTwoTestProviderStub;
-use Laravel\Socialite\Tests\Fixtures\OAuthTwoWithPKCETestProviderStub;
-use Laravel\Socialite\Two\InvalidStateException;
-use Laravel\Socialite\Two\Token;
-use Laravel\Socialite\Two\User;
+use Softbread\Socialite\Tests\Fixtures\FacebookTestProviderStub;
+use Softbread\Socialite\Tests\Fixtures\GoogleTestProviderStub;
+use Softbread\Socialite\Tests\Fixtures\OAuthTwoTestProviderStub;
+use Softbread\Socialite\Tests\Fixtures\OAuthTwoWithPKCETestProviderStub;
+use Softbread\Socialite\Two\InvalidStateException;
+use Softbread\Socialite\Two\Token;
+use Softbread\Socialite\Two\User;
 use Mockery as m;
 use PHPUnit\Framework\TestCase;
 use stdClass;
@@ -30,7 +30,7 @@ class OAuthTwoTest extends TestCase
     public function testRedirectGeneratesTheProperIlluminateRedirectResponseWithoutPKCE()
     {
         $request = Request::create('foo');
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
 
         $state = null;
         $closure = function ($name, $stateInput) use (&$state) {
@@ -57,7 +57,7 @@ class OAuthTwoTest extends TestCase
     public function testRedirectGeneratesTheProperIlluminateRedirectResponseWithPKCE()
     {
         $request = Request::create('foo');
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
 
         $state = null;
         $sessionPutClosure = function ($name, $value) use (&$state) {
@@ -96,7 +96,7 @@ class OAuthTwoTest extends TestCase
     public function testTokenRequestIncludesPKCECodeVerifier()
     {
         $request = Request::create('foo', 'GET', ['state' => str_repeat('A', 40), 'code' => 'code']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $codeVerifier = Str::random(32);
         $session->expects('pull')->with('state')->andReturns(str_repeat('A', 40));
         $session->expects('pull')->with('code_verifier')->andReturns($codeVerifier);
@@ -119,7 +119,7 @@ class OAuthTwoTest extends TestCase
     public function testUserReturnsAUserInstanceForTheAuthenticatedRequest()
     {
         $request = Request::create('foo', 'GET', ['state' => str_repeat('A', 40), 'code' => 'code']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('pull')->with('state')->andReturns(str_repeat('A', 40));
         $provider = new OAuthTwoTestProviderStub($request, 'client_id', 'client_secret', 'redirect_uri');
         $provider->http = m::mock(stdClass::class);
@@ -140,7 +140,7 @@ class OAuthTwoTest extends TestCase
     public function testUserReturnsAUserInstanceForTheAuthenticatedFacebookRequest()
     {
         $request = Request::create('foo', 'GET', ['state' => str_repeat('A', 40), 'code' => 'code']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('pull')->with('state')->andReturns(str_repeat('A', 40));
         $provider = new FacebookTestProviderStub($request, 'client_id', 'client_secret', 'redirect_uri');
         $provider->http = m::mock(stdClass::class);
@@ -163,7 +163,7 @@ class OAuthTwoTest extends TestCase
         $this->expectException(InvalidStateException::class);
 
         $request = Request::create('foo', 'GET', ['state' => str_repeat('B', 40), 'code' => 'code']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('pull')->with('state')->andReturns(str_repeat('A', 40));
         $provider = new OAuthTwoTestProviderStub($request, 'client_id', 'client_secret', 'redirect');
         $provider->user();
@@ -174,7 +174,7 @@ class OAuthTwoTest extends TestCase
         $this->expectException(InvalidStateException::class);
 
         $request = Request::create('foo', 'GET', ['state' => 'state', 'code' => 'code']);
-        $request->setLaravelSession($session = m::mock(Session::class));
+        $request->setSoftbreadSession($session = m::mock(Session::class));
         $session->expects('pull')->with('state');
         $provider = new OAuthTwoTestProviderStub($request, 'client_id', 'client_secret', 'redirect');
         $provider->user();

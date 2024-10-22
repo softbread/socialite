@@ -1,17 +1,17 @@
 {
-    "name": "laravel/socialite",
-    "description": "Laravel wrapper around OAuth 1 & OAuth 2 libraries.",
-    "keywords": ["oauth", "laravel"],
+    "name": "softbread/socialite",
+    "description": "ThinkPHP wrapper around OAuth 1 & OAuth 2 libraries.",
+    "keywords": ["oauth", "thinkphp", "socialite", "topthink"],
     "license": "MIT",
-    "homepage": "https://laravel.com",
+    "homepage": "https://telivent.com.au",
     "support": {
-        "issues": "https://github.com/laravel/socialite/issues",
-        "source": "https://github.com/laravel/socialite"
+        "issues": "https://github.com/softbread/socialite/issues",
+        "source": "https://github.com/softbread/socialite"
     },
     "authors": [
         {
-            "name": "Taylor Otwell",
-            "email": "taylor@laravel.com"
+            "name": "Victor Wang",
+            "email": "info@telivent.com.au"
         }
     ],
     "require": {
@@ -33,24 +33,24 @@
     },
     "autoload": {
         "psr-4": {
-            "Laravel\\Socialite\\": "src/"
+            "Softbread\\Socialite\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Laravel\\Socialite\\Tests\\": "tests/"
+            "Softbread\\Socialite\\Tests\\": "tests/"
         }
     },
     "extra": {
         "branch-alias": {
             "dev-master": "5.x-dev"
         },
-        "laravel": {
+        "topthink": {
             "providers": [
-                "Laravel\\Socialite\\SocialiteServiceProvider"
+                "Softbread\\Socialite\\SocialiteServiceProvider"
             ],
             "aliases": {
-                "Socialite": "Laravel\\Socialite\\Facades\\Socialite"
+                "Socialite": "Softbread\\Socialite\\Facades\\Socialite"
             }
         }
     },
