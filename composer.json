@@ -44,14 +44,6 @@
     "extra": {
         "branch-alias": {
             "dev-master": "5.x-dev"
-        },
-        "topthink": {
-            "providers": [
-                "Softbread\\Socialite\\SocialiteServiceProvider"
-            ],
-            "aliases": {
-                "Socialite": "Softbread\\Socialite\\Facades\\Socialite"
-            }
         }
     },
     "config": {
