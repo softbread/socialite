@@ -46,7 +46,7 @@
             "dev-master": "5.x-dev"
         },
         "think": {
-            "providers": [
+            "services": [
                 "Softbread\\Socialite\\SocialiteServiceProvider"
             ],
             "aliases": {
